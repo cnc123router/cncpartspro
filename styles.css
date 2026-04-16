@@ -3,6 +3,85 @@
    Industrial Dark Design System
    ============================================= */
 
+/* ┌─────────────────────────────────────────────┐
+   │  DESIGN REFERENCE — FOR WIX STUDIO MATCHING │
+   │  Use these values when theming Wix product  │
+   │  pages to match this front-end design.      │
+   └─────────────────────────────────────────────┘
+
+   ── COLORS ──────────────────────────────────────
+   Page background (deep navy):  #060B18
+   Card / section background:    #0D1526
+   Card surface:                 #141E33
+   Card hover:                   #1A2640
+   Border / divider:             #1E2D47
+   Border light:                 #253554
+   Primary text (white):         #F1F5F9
+   Secondary text:               #94A3B8
+   Muted / placeholder text:     #64748B
+   Accent orange:                #F97316
+   Accent orange hover:          #EA580C
+   Accent orange glow bg:        rgba(249, 115, 22, 0.15)
+   Info blue:                    #60A5FA
+   Success green:                #22C55E
+   Danger red:                   #EF4444
+
+   ── TYPOGRAPHY ──────────────────────────────────
+   Heading font:  Rubik (Google Fonts) — weights 400, 600, 700
+   Body font:     Nunito Sans (Google Fonts) — weights 400, 600
+   Google Fonts import URL:
+     https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Rubik:wght@400;600;700&display=swap
+
+   ── BORDER RADIUS ───────────────────────────────
+   Small (badges/tags):  6px
+   Medium (cards):       12px
+   Large (buttons):      8px
+
+   ── KEY UI PATTERNS ─────────────────────────────
+   Product card:
+     background: #141E33
+     border: 1px solid #1E2D47
+     border-radius: 12px
+     hover border: #F97316 (accent orange)
+
+   Buy Now button:
+     background: #F97316
+     color: #000000
+     font: Rubik 600
+     border-radius: 8px
+     hover background: #EA580C
+
+   Category badge:
+     background: rgba(249,115,22,0.15)
+     color: #F97316
+     font-size: 0.7rem
+     letter-spacing: 0.08em
+     text-transform: uppercase
+     border-radius: 6px
+
+   Price display:
+     color: #F97316
+     font: Rubik 700
+     font-size: 1.4rem
+
+   In Stock badge:
+     background: rgba(34,197,94,0.15)
+     color: #22C55E
+     border: 1px solid rgba(34,197,94,0.3)
+
+   Limited stock badge:
+     background: rgba(249,115,22,0.15)
+     color: #F97316
+     border: 1px solid rgba(249,115,22,0.3)
+
+   Section label (above headings):
+     color: #F97316
+     text-transform: uppercase
+     letter-spacing: 0.1em
+     font-size: 0.78rem
+
+   ─────────────────────────────────────────────── */
+
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Rubik:wght@400;600;700&display=swap');
 
@@ -2081,46 +2160,274 @@ select.form-control {
   }
 }
 
-/* ── SNIPCART CART NAV BUTTON ─────────────────────────── */
-.nav-cart {
-  position: relative;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  font-size: 0.85rem;
-  font-family: var(--font-body);
-  transition: border-color var(--transition), color var(--transition);
-  margin-right: 8px;
-}
-.nav-cart:hover {
-  border-color: var(--accent);
+/* =============================================
+   TECH SUPPORT PAGE
+   ============================================= */
+
+/* Label above headings */
+.ts-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--accent);
-}
-.nav-cart-count {
-  background: var(--accent);
-  color: #000;
-  font-size: 0.7rem;
-  font-weight: 700;
-  min-width: 18px;
-  height: 18px;
-  border-radius: 9px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 4px;
+  margin-bottom: var(--space-sm);
 }
 
-/* ── SNIPCART THEME OVERRIDES ─────────────────────────── */
-:root {
-  --color-default: #F97316;
-  --color-input-focus: #F97316;
-  --color-buttonPrimary: #F97316;
-  --color-buttonPrimary-hover: #ea6d0e;
-  --color-link: #F97316;
+/* Problem section — two-column layout */
+.ts-problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
 }
+.ts-problem-text h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  line-height: 1.25;
+}
+.ts-problem-text p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: var(--space-md);
+}
+
+/* Pricing pill */
+.ts-pricing-pill {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  background: var(--bg-card);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-xl);
+  margin-top: var(--space-xl);
+}
+.ts-price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.ts-price {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.ts-per {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+.ts-price-divider {
+  width: 1px;
+  height: 48px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.ts-price-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.ts-price-detail span::before {
+  content: '✓ ';
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* Stat cards grid */
+.ts-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+.ts-stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  transition: border-color var(--transition);
+}
+.ts-stat-card:hover {
+  border-color: var(--accent);
+}
+.ts-stat-num {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+}
+.ts-stat-num span {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+.ts-stat-label {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Services grid */
+.ts-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+.ts-service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  transition: border-color var(--transition), transform var(--transition);
+}
+.ts-service-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.ts-service-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--accent-glow);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+}
+.ts-service-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+.ts-service-card p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* How it works steps */
+.ts-steps-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+  margin-top: var(--space-2xl);
+}
+.ts-step {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  text-align: center;
+}
+.ts-step-num {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.4;
+  line-height: 1;
+  margin-bottom: var(--space-md);
+}
+.ts-step h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+.ts-step p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.ts-step-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Calendly booking wrapper */
+.ts-booking-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: var(--space-2xl);
+}
+
+/* Booking note below calendly */
+.ts-booking-note {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin-top: var(--space-lg);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.ts-booking-note a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.ts-booking-note a:hover {
+  text-decoration: underline;
+}
+
+/* Tech support teaser card (used on buy-a-cnc-router.html) */
+.ts-teaser {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2xl) var(--space-3xl);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2xl);
+  align-items: center;
+  margin-top: var(--space-3xl);
+  transition: border-color var(--transition);
+}
+.ts-teaser:hover {
+  border-color: var(--accent);
+}
+.ts-teaser h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+.ts-teaser p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  max-width: 560px;
+}
+
+/* ── RESPONSIVE — Tech Support ──────────────────────── */
+@media (max-width: 900px) {
+  .ts-problem-grid { grid-template-columns: 1fr; }
+  .ts-services-grid { grid-template-columns: repeat(2, 1fr); }
+  .ts-steps-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .ts-step-arrow { transform: rotate(90deg); }
+  .ts-teaser { grid-template-columns: 1fr; gap: var(--space-lg); }
+}
+@media (max-width: 600px) {
+  .ts-services-grid { grid-template-columns: 1fr; }
+  .ts-stats-grid { grid-template-columns: 1fr 1fr; }
+  .ts-pricing-pill { flex-direction: column; gap: var(--space-md); }
+  .ts-price-divider { width: 48px; height: 1px; }
+}
+
+
